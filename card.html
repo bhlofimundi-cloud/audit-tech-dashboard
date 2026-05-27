@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07080f;
+      color: #f1f5f9;
+      width: 1080px;
+      /* height set by JS: 1080 (square) or 1920 (stories) */
+    }
+
+    .card {
+      width: 1080px;
+      min-height: 1080px;
+      background: linear-gradient(145deg, #0d0f1a 0%, #10132a 60%, #080a14 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 64px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Glow */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .brand-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #6c63ff, #a78bfa);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-tag {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* EMPRESA */
+    .empresa-label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .empresa-nome {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .empresa-meta {
+      font-size: 18px;
+      color: #64748b;
+      display: flex;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    /* SCORE */
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 56px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #1e2236;
+      border-radius: 20px;
+      padding: 36px 44px;
+    }
+
+    .score-number {
+      font-size: 96px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .score-slash {
+      font-size: 36px;
+      color: #334155;
+      font-weight: 400;
+      margin-left: -8px;
+    }
+
+    .score-right { flex: 1; }
+
+    .score-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .score-bar-bg {
+      height: 8px;
+      background: #1e2236;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .score-desc {
+      font-size: 17px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* IAs */
+    .ias-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin-bottom: 20px;
+    }
+
+    .ias-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .ia-chip {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #1e2236;
+      border-radius: 14px;
+      padding: 20px 18px;
+      text-align: center;
+    }
+
+    .ia-chip-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .ia-chip-status {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .s-presente { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .s-parcial  { background: rgba(234,179,8,0.15);  color: #fbbf24; }
+    .s-ausente  { background: rgba(239,68,68,0.15);  color: #f87171; }
+    .s-nd       { background: rgba(107,114,128,0.12); color: #9ca3af; }
+
+    /* PONTOS */
+    .pts-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f87171;
+      margin-bottom: 20px;
+    }
+
+    .pts-list {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .pt-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 17px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .pt-x {
+      color: #f87171;
+      font-weight: 800;
+      font-size: 18px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER CTA */
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid #1e2236;
+    }
+
+    .footer-cta {
+      font-size: 16px;
+      color: #64748b;
+    }
+
+    .footer-cta strong { color: #f1f5f9; }
+
+    .footer-price {
+      text-align: right;
+    }
+
+    .footer-price-label {
+      font-size: 12px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .footer-price-val {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #6c63ff, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-price-note {
+      font-size: 12px;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+<div class="card" id="card">
+
+  <!-- BRAND -->
+  <div class="brand">
+    <div class="brand-icon">⚡</div>
+    <span class="brand-name">Audit Tech</span>
+    <span class="brand-tag">Diagnóstico de IA</span>
+  </div>
+
+  <!-- EMPRESA -->
+  <div class="empresa-label">Empresa analisada</div>
+  <div class="empresa-nome" id="c-nome">—</div>
+  <div class="empresa-meta">
+    <span id="c-segmento"></span>
+    <span id="c-cidade"></span>
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-row">
+    <div>
+      <span class="score-number" id="c-score">—</span>
+      <span class="score-slash">/100</span>
+    </div>
+    <div class="score-right">
+      <div class="score-label" id="c-score-label">Score de Visibilidade</div>
+      <div class="score-bar-bg">
+        <div class="score-bar-fill" id="c-score-bar"></div>
+      </div>
+      <div class="score-desc" id="c-score-desc"></div>
+    </div>
+  </div>
+
+  <!-- IAs -->
+  <div class="ias-title">Presença nas IAs</div>
+  <div class="ias-row" id="c-ias"></div>
+
+  <!-- PONTOS CRÍTICOS -->
+  <div class="pts-title">Pontos críticos</div>
+  <div class="pts-list" id="c-pts"></div>
+
+  <!-- FOOTER -->
+  <div class="card-footer">
+    <div class="footer-cta">
+      <strong>Quer corrigir isso?</strong><br>
+      Fale com a Audit Tech — (31) 98106-3231
+    </div>
+    <div class="footer-price">
+      <div class="footer-price-label">Execução completa</div>
+      <div class="footer-price-val">R$ 497</div>
+      <div class="footer-price-note">serviço único · sem mensalidade</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('cliente');
+  const modo = params.get('modo') || 'square'; // square | stories
+
+  const statusCls = (s = '') => {
+    const m = { presente:'s-presente', parcial:'s-parcial', ausente:'s-ausente' };
+    return m[s.toLowerCase()] ?? 's-nd';
+  };
+
+  const statusTxt = (s = '') => {
+    if (!s || s.toLowerCase().includes('nao') || s.toLowerCase().includes('não')) return 'N/D';
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  };
+
+  const scoreColor = n => n >= 70 ? '#22c55e' : n >= 45 ? '#eab308' : '#ef4444';
+  const scoreDesc  = n => n >= 70 ? 'Visibilidade razoável' : n >= 45 ? 'Visibilidade parcial' : 'Visibilidade baixa';
+
+  async function load() {
+    if (!id) return;
+    const res = await fetch(`/data/${id}.json`);
+    const d = await res.json();
+
+    document.getElementById('c-nome').textContent = d.nome_empresa ?? '—';
+    document.getElementById('c-segmento').textContent = d.segmento ? '📁 ' + d.segmento : '';
+    document.getElementById('c-cidade').textContent   = d.cidade   ? '📍 ' + d.cidade   : '';
+
+    const score = parseInt(d.score_geral) || 0;
+    const cor   = scoreColor(score);
+    document.getElementById('c-score').textContent = score;
+    document.getElementById('c-score').style.color = cor;
+    document.getElementById('c-score-label').style.color = cor;
+    document.getElementById('c-score-desc').textContent = scoreDesc(score);
+    const bar = document.getElementById('c-score-bar');
+    bar.style.width = score + '%';
+    bar.style.background = cor;
+
+    // IAs
+    const ias = [
+      { key: 'chatgpt', label: 'ChatGPT' },
+      { key: 'gemini',  label: 'Gemini'  },
+      { key: 'claude',  label: 'Claude'  },
+      { key: 'perplexity', label: 'Perplexity' },
+    ];
+    const iasEl = document.getElementById('c-ias');
+    iasEl.innerHTML = ias.map(({ key, label }) => {
+      const st = d.visibilidade_ias?.[key]?.status ?? '';
+      return `<div class="ia-chip">
+        <div class="ia-chip-name">${label}</div>
+        <div class="ia-chip-status ${statusCls(st)}">${statusTxt(st) || 'N/D'}</div>
+      </div>`;
+    }).join('');
+
+    // Pontos críticos
+    const tec = d.diagnostico_tecnico ?? {};
+    const iaMap = d.visibilidade_ias ?? {};
+    const criticos = [];
+    const iaLabels = { chatgpt:'ChatGPT', gemini:'Gemini', claude:'Claude', perplexity:'Perplexity' };
+    Object.entries(iaLabels).forEach(([key, label]) => {
+      const st = (iaMap[key]?.status || '').toLowerCase();
+      if (st === 'ausente') criticos.push(`Não aparece no ${label}`);
+      else if (st === 'parcial') criticos.push(`Aparece de forma incompleta no ${label}`);
+    });
+    const gb = (tec.google_business || '').toLowerCase();
+    if (gb.includes('nao') || gb.includes('não')) criticos.push('Perfil no Google não configurado');
+    if ((d.concorrentes ?? []).length > 0) criticos.push('Concorrentes aparecem no lugar da empresa nas IAs');
+    if (tec.principal_problema) criticos.push(tec.principal_problema);
+
+    const ptsEl = document.getElementById('c-pts');
+    [...new Set(criticos)].slice(0, 4).forEach(p => {
+      ptsEl.innerHTML += `<div class="pt-item"><span class="pt-x">✗</span><span>${p}</span></div>`;
+    });
+
+    // Modo Stories: aumenta o card
+    if (modo === 'stories') {
+      document.getElementById('card').style.minHeight = '1920px';
+      document.body.style.height = '1920px';
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>

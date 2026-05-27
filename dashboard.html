@@ -649,6 +649,34 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ---- PRINT ---- */
+    .btn-print {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text2);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .btn-print:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .header { position: relative; box-shadow: none; }
+      .btn-print { display: none !important; }
+      .hero { border-radius: 0; }
+      .container { padding: 20px 0 40px; }
+      .ia-card:hover { transform: none; }
+      @page { margin: 12mm 14mm; size: A4; }
+    }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 600px) {
       .header { padding: 16px 20px; }
@@ -667,7 +695,10 @@
       <div class="logo-icon">⚡</div>
       Audit Tech
     </div>
-    <span class="badge-confidencial">Diagnóstico Confidencial</span>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="btn-print" onclick="window.print()" title="Salvar como PDF">⬇ Salvar PDF</button>
+      <span class="badge-confidencial">Diagnóstico Confidencial</span>
+    </div>
   </header>
 
   <!-- HERO -->
