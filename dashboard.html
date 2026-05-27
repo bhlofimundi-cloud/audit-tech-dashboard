@@ -493,6 +493,130 @@
       line-height: 1.7;
     }
 
+    /* ---- CTA FINAL ---- */
+    .cta-section {
+      background: #0d0f1a;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .cta-top {
+      padding: 28px 28px 0;
+    }
+
+    .cta-problems-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f87171;
+      margin-bottom: 16px;
+    }
+
+    .cta-problems-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .cta-problems-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .cta-problems-list li::before {
+      content: '✗';
+      color: #f87171;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .cta-divider {
+      height: 1px;
+      background: var(--card-border);
+      margin: 0 28px;
+    }
+
+    .cta-offer {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-offer-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .cta-offer-text p {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .cta-price-block {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .cta-price-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 4px;
+    }
+
+    .cta-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cta-price-note {
+      font-size: 0.68rem;
+      color: var(--text3);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover { opacity: 0.88; }
+
+    @media (max-width: 600px) {
+      .cta-offer { grid-template-columns: 1fr; }
+      .cta-price-block { text-align: left; }
+    }
+
     /* ---- FOOTER ---- */
     .footer {
       border-top: 1px solid var(--card-border);
@@ -639,6 +763,31 @@
         <div class="parecer-card">
           <div class="parecer-title">Parecer Final</div>
           <p class="parecer-text" id="parecer-text"></p>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="cta-section" id="cta-section">
+        <div class="cta-top">
+          <div class="cta-problems-title">Pontos críticos encontrados</div>
+          <ul class="cta-problems-list" id="cta-problems-list"></ul>
+        </div>
+        <div class="cta-divider"></div>
+        <div class="cta-offer">
+          <div class="cta-offer-text">
+            <h3>O que fazer com este diagnóstico</h3>
+            <p>
+              Você pode levar este documento à pessoa responsável pelo seu site e pedir que ela implante as correções.
+              Tudo o que precisa ser feito está listado acima.<br><br>
+              Se preferir que a <strong>Audit Tech</strong> execute as correções, o valor é fixo e sem mensalidade.
+            </p>
+            <a class="cta-btn" href="https://wa.me/5531999999999?text=Quero+saber+mais+sobre+a+execucao+do+diagnostico" target="_blank" id="cta-btn">Solicitar execução →</a>
+          </div>
+          <div class="cta-price-block">
+            <div class="cta-price-label">Execução completa</div>
+            <div class="cta-price">R$&nbsp;497</div>
+            <div class="cta-price-note">Serviço único · sem mensalidade</div>
+          </div>
         </div>
       </section>
 
@@ -797,6 +946,41 @@
 
       // Parecer
       $('parecer-text').textContent = d.parecer_final || '—';
+
+      // CTA — pontos críticos em linguagem simples
+      const tec2 = d.diagnostico_tecnico ?? {};
+      const iaStatuses = d.visibilidade_ias ?? {};
+      const criticos = [];
+
+      // IAs com problema
+      const iaLabels = { chatgpt: 'ChatGPT', gemini: 'Gemini', claude: 'Claude', perplexity: 'Perplexity' };
+      Object.entries(iaLabels).forEach(([key, label]) => {
+        const st = (iaStatuses[key]?.status || '').toLowerCase();
+        if (st === 'ausente') criticos.push(`A empresa não aparece no ${label} quando alguém pesquisa pelo serviço.`);
+        if (st === 'parcial') criticos.push(`A empresa aparece de forma incompleta ou incorreta no ${label}.`);
+      });
+
+      // Google Business
+      const gb = (tec2.google_business || '').toLowerCase();
+      if (gb.includes('nao verificado') || gb.includes('não verificado') || gb.includes('não encontrado') || gb.includes('nao encontrado'))
+        criticos.push('Perfil no Google não encontrado ou não configurado — a empresa não aparece no Google Maps.');
+
+      // Principal problema
+      if (tec2.principal_problema && tec2.principal_problema.toLowerCase() !== '—')
+        criticos.push(tec2.principal_problema);
+
+      // Concorrentes
+      if ((d.concorrentes ?? []).length > 0)
+        criticos.push('Há concorrentes sendo indicados pelas IAs no lugar desta empresa.');
+
+      const ctaList = $('cta-problems-list');
+      ctaList.innerHTML = '';
+      const uniqueCriticos = [...new Set(criticos)].slice(0, 6);
+      uniqueCriticos.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = p;
+        ctaList.appendChild(li);
+      });
 
       // Footer date
       $('footer-date').textContent = new Date().toLocaleDateString('pt-BR', { year: 'numeric', month: 'long' });
