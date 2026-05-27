@@ -290,6 +290,19 @@
     /* ---- COMPETITORS ---- */
     .comp-list { display: grid; gap: 12px; }
 
+    .comp-context {
+      background: rgba(239,68,68,0.05);
+      border: 1px solid rgba(239,68,68,0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: var(--text2);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .comp-context strong { color: #f87171; }
+
     .comp-card {
       background: var(--card);
       border: 1px solid var(--card-border);
@@ -590,7 +603,12 @@
 
       <!-- CONCORRENTES -->
       <section id="comp-section">
-        <div class="section-title">Quem aparece no lugar</div>
+        <div class="section-title">Concorrentes que aparecem nas IAs</div>
+        <div class="comp-context">
+          Quando alguém pesquisa pelo serviço desta empresa em ferramentas como ChatGPT ou Gemini,
+          <strong>estas são as empresas que as IAs costumam indicar no lugar.</strong>
+          O cliente pode não conhecê-las, mas as IAs já as reconhecem.
+        </div>
         <div class="comp-list" id="comp-list"></div>
       </section>
 
