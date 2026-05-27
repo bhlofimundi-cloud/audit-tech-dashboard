@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Tech · Diagnóstico de Visibilidade para IA</title>
+  <meta name="description" content="Diagnóstico completo de visibilidade da sua empresa nas principais IAs do mercado." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07080f;
+      --bg2: #0d0f1a;
+      --bg3: #12152200;
+      --card: #111422;
+      --card-border: #1e2236;
+      --accent: #6c63ff;
+      --accent2: #a78bfa;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+      --gray: #6b7280;
+      --text: #f1f5f9;
+      --text2: #94a3b8;
+      --text3: #64748b;
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      background: linear-gradient(135deg, #0d0f1a 0%, #131629 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .badge-confidencial {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(108, 99, 255, 0.12);
+      border: 1px solid rgba(108, 99, 255, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(135deg, #0d0f1a 0%, #0f1225 50%, #0a0c18 100%);
+      padding: 48px 32px 40px;
+      border-bottom: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-meta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+
+    .hero-name {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      color: var(--text2);
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-sub span { display: flex; align-items: center; gap: 5px; }
+
+    /* ---- CONTAINER ---- */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      display: grid;
+      gap: 24px;
+    }
+
+    /* ---- SCORE ---- */
+    .score-section {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .score-ring {
+      position: relative;
+      width: 130px; height: 130px;
+      flex-shrink: 0;
+    }
+
+    .score-ring svg { transform: rotate(-90deg); }
+
+    .score-ring-bg { fill: none; stroke: #1e2236; stroke-width: 10; }
+    .score-ring-fill {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .score-number {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .score-number strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .score-number span {
+      font-size: 0.65rem;
+      color: var(--text3);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .score-info h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .score-info p {
+      color: var(--text2);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .score-level {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- SECTION TITLE ---- */
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    /* ---- IA GRID ---- */
+    .ia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .ia-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .ia-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .ia-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .ia-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+
+    .status-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .status-presente { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+    .status-parcial  { background: rgba(234,179,8,0.15);  color: #fbbf24; border: 1px solid rgba(234,179,8,0.25); }
+    .status-ausente  { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+    .status-nao-verificado { background: rgba(107,114,128,0.15); color: #9ca3af; border: 1px solid rgba(107,114,128,0.25); }
+
+    .ia-obs {
+      font-size: 0.82rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    /* ---- COMPETITORS ---- */
+    .comp-list { display: grid; gap: 12px; }
+
+    .comp-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--red);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    .comp-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comp-icon {
+      width: 22px; height: 22px;
+      background: rgba(239,68,68,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+
+    .comp-motivo {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    /* ---- DIAGNOSTIC ---- */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .diag-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .diag-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .diag-label .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+    }
+
+    .diag-text {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    .problema-card {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    .problema-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f87171;
+      margin-bottom: 8px;
+    }
+
+    .problema-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* ---- PRIORITIES ---- */
+    .priority-list { display: grid; gap: 10px; }
+
+    .priority-item {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .priority-num {
+      width: 28px; height: 28px;
+      min-width: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .priority-text {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.5;
+      padding-top: 4px;
+    }
+
+    /* ---- ACTION PLAN ---- */
+    .action-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .action-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .action-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .action-3::before  { background: linear-gradient(90deg, #6c63ff, #a78bfa); }
+    .action-30::before { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+    .action-90::before { background: linear-gradient(90deg, #22c55e, #4ade80); }
+
+    .action-period {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .action-3  .action-period { color: #a78bfa; }
+    .action-30 .action-period { color: #38bdf8; }
+    .action-90 .action-period { color: #4ade80; }
+
+    .action-text {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    /* ---- PARECER ---- */
+    .parecer-card {
+      background: linear-gradient(135deg, rgba(108,99,255,0.08) 0%, rgba(167,139,250,0.05) 100%);
+      border: 1px solid rgba(108,99,255,0.2);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .parecer-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 14px;
+    }
+
+    .parecer-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      border-top: 1px solid var(--card-border);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text3);
+    }
+
+    .footer strong { color: var(--text2); }
+
+    /* ---- LOADING / ERROR ---- */
+    .state-screen {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--text2);
+    }
+
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--card-border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .header { padding: 16px 20px; }
+      .hero { padding: 32px 20px 28px; }
+      .container { padding: 24px 16px 48px; }
+      .score-section { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .ia-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">⚡</div>
+      Audit Tech
+    </div>
+    <span class="badge-confidencial">Diagnóstico Confidencial</span>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <div class="hero-meta">Diagnóstico de Visibilidade para IA</div>
+    <div class="hero-name" id="hero-name">Carregando…</div>
+    <div class="hero-sub">
+      <span id="hero-segmento"></span>
+      <span id="hero-cidade"></span>
+      <span id="hero-site"></span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div id="loading" class="state-screen">
+      <div class="spinner"></div>
+      <p>Carregando diagnóstico…</p>
+    </div>
+
+    <div id="error" class="state-screen" style="display:none;">
+      <div style="font-size:2rem;">⚠️</div>
+      <p id="error-msg">Cliente não encontrado.</p>
+    </div>
+
+    <div id="content" class="container" style="display:none;">
+
+      <!-- SCORE -->
+      <section>
+        <div class="section-title">Resultado Geral</div>
+        <div class="score-section">
+          <div class="score-ring">
+            <svg viewBox="0 0 130 130" width="130" height="130">
+              <circle class="score-ring-bg" cx="65" cy="65" r="55" />
+              <circle id="score-arc" class="score-ring-fill" cx="65" cy="65" r="55"
+                stroke-dasharray="345.4"
+                stroke-dashoffset="345.4" />
+            </svg>
+            <div class="score-number">
+              <strong id="score-val">—</strong>
+              <span>/ 100</span>
+            </div>
+          </div>
+          <div class="score-info">
+            <div id="score-level" class="score-level">— Avaliando…</div>
+            <h2>Score de Visibilidade</h2>
+            <p id="score-desc">Quanto maior o score, mais fácil é para as IAs confirmarem a existência e relevância da empresa.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISIBILIDADE NAS IAs -->
+      <section>
+        <div class="section-title">Visibilidade nas IAs</div>
+        <div class="ia-grid" id="ia-grid"></div>
+      </section>
+
+      <!-- CONCORRENTES -->
+      <section id="comp-section">
+        <div class="section-title">Quem aparece no lugar</div>
+        <div class="comp-list" id="comp-list"></div>
+      </section>
+
+      <!-- DIAGNÓSTICO TÉCNICO -->
+      <section>
+        <div class="section-title">Diagnóstico Técnico</div>
+        <div class="diag-grid" id="diag-grid"></div>
+        <div class="problema-card" id="problema-card" style="margin-top:14px;">
+          <div class="problema-label">⚠ Principal Bloqueio</div>
+          <div class="problema-text" id="problema-text"></div>
+        </div>
+      </section>
+
+      <!-- PRIORIDADES -->
+      <section>
+        <div class="section-title">Prioridades</div>
+        <div class="priority-list" id="priority-list"></div>
+      </section>
+
+      <!-- PLANO DE AÇÃO -->
+      <section>
+        <div class="section-title">Plano de Ação</div>
+        <div class="action-timeline" id="action-timeline"></div>
+      </section>
+
+      <!-- PARECER FINAL -->
+      <section>
+        <div class="parecer-card">
+          <div class="parecer-title">Parecer Final</div>
+          <p class="parecer-text" id="parecer-text"></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <strong>Audit Tech</strong> · Diagnóstico de Visibilidade para IA ·
+    <span id="footer-date"></span>
+  </footer>
+
+  <script>
+    // ---- UTILS ----
+    const $ = (id) => document.getElementById(id);
+    const show = (id) => $(id).style.display = '';
+    const hide = (id) => $(id).style.display = 'none';
+
+    const statusClass = (s = '') => {
+      const map = {
+        'presente': 'status-presente',
+        'parcial': 'status-parcial',
+        'ausente': 'status-ausente',
+        'nao verificado': 'status-nao-verificado',
+        'não verificado': 'status-nao-verificado',
+      };
+      return map[s.toLowerCase()] ?? 'status-nao-verificado';
+    };
+
+    const scoreColor = (n) => {
+      if (n >= 70) return '#22c55e';
+      if (n >= 45) return '#eab308';
+      return '#ef4444';
+    };
+
+    const scoreLabel = (n) => {
+      if (n >= 70) return { text: '✓ Visibilidade Razoável', cls: 'status-presente' };
+      if (n >= 45) return { text: '⚡ Visibilidade Parcial', cls: 'status-parcial' };
+      return { text: '✗ Visibilidade Baixa', cls: 'status-ausente' };
+    };
+
+    const ias = [
+      { key: 'chatgpt',   label: 'ChatGPT'    },
+      { key: 'gemini',    label: 'Gemini'     },
+      { key: 'claude',    label: 'Claude'     },
+      { key: 'perplexity',label: 'Perplexity' },
+    ];
+
+    // ---- RENDER ----
+    function render(d) {
+      // Hero
+      $('hero-name').textContent = d.nome_empresa;
+      $('hero-segmento').textContent = d.segmento ? '📁 ' + d.segmento : '';
+      $('hero-cidade').textContent   = d.cidade    ? '📍 ' + d.cidade   : '';
+      if (d.site) {
+        $('hero-site').innerHTML = `🔗 <a href="${d.site}" target="_blank" style="color:var(--accent2);text-decoration:none;">${d.site.replace(/^https?:\/\//, '')}</a>`;
+      }
+
+      // Score
+      const score = parseInt(d.score_geral) || 0;
+      $('score-val').textContent = score;
+      const arc = $('score-arc');
+      const circum = 345.4;
+      const offset = circum - (circum * score / 100);
+      arc.style.stroke = scoreColor(score);
+      setTimeout(() => { arc.style.strokeDashoffset = offset; }, 100);
+
+      const lv = scoreLabel(score);
+      const lvEl = $('score-level');
+      lvEl.textContent = lv.text;
+      lvEl.className = 'score-level ' + lv.cls;
+      lvEl.style.cssText += ';display:inline-flex;';
+
+      // IAs
+      const iaGrid = $('ia-grid');
+      iaGrid.innerHTML = '';
+      ias.forEach(({ key, label }) => {
+        const ia = d.visibilidade_ias?.[key] ?? {};
+        const status = ia.status || 'Não verificado';
+        const obs    = ia.observacao || ia.obs || '—';
+        iaGrid.innerHTML += `
+          <div class="ia-card">
+            <div class="ia-header">
+              <span class="ia-name">${label}</span>
+              <span class="status-badge ${statusClass(status)}">${status}</span>
+            </div>
+            <p class="ia-obs">${obs}</p>
+          </div>`;
+      });
+
+      // Concorrentes
+      const comps = d.concorrentes ?? [];
+      if (comps.length === 0) {
+        hide('comp-section');
+      } else {
+        const compList = $('comp-list');
+        compList.innerHTML = '';
+        comps.forEach((c, i) => {
+          compList.innerHTML += `
+            <div class="comp-card">
+              <div class="comp-name">
+                <span class="comp-icon">🔴</span>
+                ${c.nome || '—'}
+              </div>
+              <p class="comp-motivo">${c.motivo || '—'}</p>
+            </div>`;
+        });
+      }
+
+      // Diagnóstico técnico
+      const tec = d.diagnostico_tecnico ?? {};
+      const diagItems = [
+        { label: 'Site',             icon: '🌐', text: tec.site || '—'             },
+        { label: 'Google Business',  icon: '📍', text: tec.google_business || '—'  },
+        { label: 'Instagram',        icon: '📸', text: tec.instagram || '—'        },
+      ];
+      const diagGrid = $('diag-grid');
+      diagGrid.innerHTML = '';
+      diagItems.forEach(({ label, icon, text }) => {
+        diagGrid.innerHTML += `
+          <div class="diag-card">
+            <div class="diag-label"><span class="dot"></span>${icon} ${label}</div>
+            <p class="diag-text">${text}</p>
+          </div>`;
+      });
+      $('problema-text').textContent = tec.principal_problema || '—';
+
+      // Prioridades
+      const priors = d.prioridades ?? [];
+      const prList = $('priority-list');
+      prList.innerHTML = '';
+      priors.forEach((p, i) => {
+        prList.innerHTML += `
+          <div class="priority-item">
+            <span class="priority-num">${i + 1}</span>
+            <span class="priority-text">${p}</span>
+          </div>`;
+      });
+
+      // Plano de ação
+      const acoes = d.acoes ?? {};
+      const timeline = $('action-timeline');
+      timeline.innerHTML = `
+        <div class="action-card action-3">
+          <div class="action-period">⚡ 3 dias</div>
+          <p class="action-text">${acoes['3_dias'] || '—'}</p>
+        </div>
+        <div class="action-card action-30">
+          <div class="action-period">📅 30 dias</div>
+          <p class="action-text">${acoes['30_dias'] || '—'}</p>
+        </div>
+        <div class="action-card action-90">
+          <div class="action-period">🚀 90 dias</div>
+          <p class="action-text">${acoes['90_dias'] || '—'}</p>
+        </div>`;
+
+      // Parecer
+      $('parecer-text').textContent = d.parecer_final || '—';
+
+      // Footer date
+      $('footer-date').textContent = new Date().toLocaleDateString('pt-BR', { year: 'numeric', month: 'long' });
+
+      // Show
+      hide('loading');
+      show('content');
+    }
+
+    // ---- LOAD ----
+    async function load() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('cliente');
+
+      if (!id) {
+        hide('loading');
+        $('error-msg').textContent = 'Nenhum cliente especificado. Use ?cliente=at_001';
+        show('error');
+        return;
+      }
+
+      try {
+        const res = await fetch(`/data/${id}.json`);
+        if (!res.ok) throw new Error('Arquivo não encontrado: ' + id);
+        const data = await res.json();
+        render(data);
+      } catch (err) {
+        hide('loading');
+        $('error-msg').textContent = 'Erro ao carregar diagnóstico: ' + err.message;
+        show('error');
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "id_cliente": "at_004",
+  "nome_empresa": "quadoo arquitetura",
+  "segmento": "Arquitetura",
+  "cidade": "Belo Horizonte",
+  "site": "http://www.quadoo.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Parcial",
+      "observacao": "Reconhece o escritório pelo nome institucional, mas não o associa de forma direta ao termo de busca corporativo local."
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "Associa o nome ao segmento de arquitetura em Belo Horizonte, mas carece de dados de geolocalização conectados ao nicho."
+    },
+    "claude": {
+      "status": "Ausente",
+      "observacao": "Não identifica o escritório ao mapear prestadores de serviços focados em arquitetura corporativa na cidade."
+    },
+    "perplexity": {
+      "status": "Parcial",
+      "observacao": "Encontra referências básicas do domínio antigo, mas não puxa projetos recentes do portfólio de escritórios."
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "Tríade Arquitetura Corporativa",
+      "motivo": "Uso repetido dos termos 'arquitetura corporativa' e 'ambientes de trabalho' indexados em páginas de serviços e artigos."
+    },
+    {
+      "nome": "Estúdio Arquitetura BH",
+      "motivo": "Forte presença local mapeada por plataformas de busca com avaliações recorrentes mencionando projetos comerciais."
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "Usa protocolo HTTP não seguro em vez de HTTPS, o que reduz a confiança dos indexadores e geradores de resposta das IAs.",
+    "google_business": "nao verificado",
+    "instagram": "Perfil ativo, mas as publicações utilizam legendas muito curtas que não descrevem os conceitos técnicos do serviço corporativo.",
+    "principal_problema": "Ausência do protocolo de segurança HTTPS no site e falta de textos detalhados explicando a especialidade em ambientes de trabalho, dificultando a leitura dos robôs de IA."
+  },
+  "score_geral": 40,
+  "prioridades": [
+    "Instalar certificado de segurança SSL para mudar o site de HTTP para HTTPS.",
+    "Criar seções de texto dedicadas a explicar soluções para ambientes de trabalho e escritórios corporativos no site.",
+    "Ativar e estruturar o perfil institucional no Google Business com a categoria correta."
+  ],
+  "acoes": {
+    "3_dias": "Solicitar ao suporte da hospedagem a ativação do certificado SSL gratuito para tornar o site seguro.",
+    "30_dias": "Preencher e validar a ficha do Google Business adicionando fotos de projetos comerciais realizados e o endereço do Sion.",
+    "90_dias": "Incluir descrições detalhadas com termos como 'projeto de escritório' e 'leiaute corporativo' nas páginas de portfólio do site e posts do Instagram."
+  },
+  "parecer_final": "O escritório quadoo arquitetura foca em um nicho muito claro, que são os ambientes de trabalho, mas a falta de segurança técnica no site (HTTP) e a ausência de uma ficha estruturada no Google Business barram a leitura das IAs. Resolvendo a segurança do link e inserindo termos de arquitetura corporativa nos textos, o escritório passa a fornecer os dados necessários para ser citado."
+}

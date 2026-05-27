@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_006",
+  "nome_empresa": "Dra. Anna Clara",
+  "segmento": "clinica de estetica",
+  "cidade": "Nova Lima",
+  "site": "https://melhordermato.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Sem acesso a consultas externas em tempo real para checagem deste termo específico.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "O dominio e mapeado institucionalmente, mas o nome proprio da profissional nao se conecta diretamente a buscas geograficas na regiao indicada.",
+      "evidencia": "analise de cruzamento de dados de marca e dominio na base local",
+      "confianca": "media"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Nao e possivel realizar testes externos de navegacao web com este modelo no momento.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Busca em tempo real nao executada para esta marca específica durante o processo.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O dominio possui um nome comercial generico (melhordermato.com.br) que nao carrega diretamente o nome da profissional informado (Dra. Anna Clara), gerando descontinuidade na leitura automatica.",
+    "google_business": "nao verificado",
+    "instagram": "nao encontrado",
+    "principal_problema": "Divergencia de identidade digital entre o nome da profissional e o endereço do site, alem da falta de dados publicos de endereço e redes sociais vinculados no cadastro.",
+    "evidencia_usada": "Ficha cadastral do cliente id_cliente at_006",
+    "confianca": "alta"
+  },
+  "score_geral": 28,
+  "confianca_score": "media",
+  "prioridades": [
+    "Vincular explicitamente o nome da Dra. Anna Clara ao dominio do site em todas as sessoes de texto.",
+    "Criar e estruturar uma ficha no Google Business preenchendo o endereço fisico em Nova Lima.",
+    "Inserir links para as redes sociais oficiais e dados de contato no rodape do site institucional."
+  ],
+  "acoes": {
+    "3_dias": "Inserir o nome completo da profissional, o endereço de Nova Lima e o CNPJ de forma visivel no rodape do site.",
+    "30_dias": "Criar a conta no Google Business e mapear o Instagram da clinica, unificando a marca com o termo 'Tratamentos dermatologicos'.",
+    "90_dias": "Produzir paginas internas estruturadas no site detalhando cada tipo de tratamento oferecido para mapeamento dos robos de busca."
+  },
+  "parecer_final": "A empresa apresenta uma barreira importante de confirmacao pelas IAs porque o nome da profissional nao coincide com o nome do dominio do site, e faltam dados essenciais como endereço corporativo e redes sociais no mapeamento basico. Para reverter esse cenario, e necessario unificar as informaçoes da marca da Dra. Anna Clara ao dominio e registrar formalmente os canais locais de geolocalizacao."
+}

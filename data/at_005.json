@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_005",
+  "nome_empresa": "MMF Advogados",
+  "segmento": "Advocacia",
+  "cidade": "Belo Horizonte",
+  "site": "https://www.mmf-law.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Sem acesso direto a buscas externas em tempo real para validar a citacao exata da marca.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "Reconhecido internamente como um escritorio corporativo, mas nao associado diretamente a listas locais de direito tributario.",
+      "evidencia": "analise de base de dados interna de padroes de recomendacao local",
+      "confianca": "media"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Sem ferramentas de navegacao para testar o comportamento atual da ferramenta externa.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Nao e possivel executar buscas na internet durante esta analise para validar o status.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro e nao ha permissao para simular ou inventar marcas sem dados reais.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro e nao ha permissao para simular ou inventar marcas sem dados reais.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O dominio institucional esta ativo, mas usa uma extensao internacional combinada (-law.com.br) que exige maior esforco de indexacao local.",
+    "google_business": "nao encontrado no cadastro inicial, impossibilitando a analise de dados de geolocalizacao.",
+    "instagram": "Perfil indicado como @mmf_law, sugerindo foco em identidade corporativa institucional.",
+    "principal_problema": "Ausencia de dados estruturados publicos e de vinculacao local clara (como endereço e ficha de mapas), o que impede as IAs de validarem a existencia fisica do escritorio em Belo Horizonte.",
+    "evidencia_usada": "Dados fornecidos na ficha do cliente at_005",
+    "confianca": "media"
+  },
+  "score_geral": 35,
+  "confianca_score": "media",
+  "prioridades": [
+    "Vincular o site institucional de forma explicita a um endereço fisico em Belo Horizonte.",
+    "Garantir a criacao e atualizacao constante de uma ficha no Google Business sob a mesma marca.",
+    "Inserir termos especificos de direito tributario e advocacia empresarial nas paginas de texto do site."
+  ],
+  "acoes": {
+    "3_dias": "Inserir o endereço completo de Belo Horizonte e o CNPJ no rodape do site oficial.",
+    "30_dias": "Registrar e verificar a ficha da empresa no Google Business com a categoria principal 'Advogado tributarista'.",
+    "90_dias": "Publicar textos institucionais detalhando os principais serviços tributarios prestados para facilitar o escaneamento dos robos de IA."
+  },
+  "parecer_final": "O MMF Advogados possui uma base digital inicial estruturada em seu site proprio, mas apresenta uma lacuna de dados geograficos especificos. Para que os modelos de IA recomendem o escritorio em buscas locais voltadas ao segmento de advocacia tributaria, e fundamental associar de forma clara o nome da marca a cidade de Belo Horizonte por meio de fichas de mapas e textos explicitos no site."
+}

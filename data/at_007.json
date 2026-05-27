@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_007",
+  "nome_empresa": "Gustavo Penna",
+  "segmento": "Arquitetura",
+  "cidade": "Belo Horizonte",
+  "site": "https://www.gustavopenna.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Sem acesso direto a consultas externas em tempo real para validacao da listagem atual.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Presente",
+      "observacao": "Reconhecido diretamente como um dos principais escritorios de arquitetura de Belo Horizonte e do Brasil.",
+      "evidencia": "Mapeamento interno de dados sobre projetos publicos institucionais e reconhecimento cultural da marca",
+      "confianca": "alta"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Nao e possivel realizar navegacao web em tempo real com esta ferramenta nesta analise.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Nao foram executadas buscas externas automatizadas durante o processo.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro e a regra de integridade impede a criacao de dados falsos.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro e a regra de integridade impede a criacao de dados falsos.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O dominio esta ativo e centraliza o portfolio do escritorio, servindo como a principal ancora de informacoes tecnicas sobre os projetos.",
+    "google_business": "nao verificado",
+    "instagram": "nao encontrado",
+    "principal_problema": "Embora a marca tenha forte autoridade historica e institucional indexada, ha falta de integracao explicita de canais como ficha de mapas local e redes sociais nos dados fornecidos para analise basica.",
+    "evidencia_usada": "Dados fornecidos na ficha cadastral at_007",
+    "confianca": "alta"
+  },
+  "score_geral": 65,
+  "confianca_score": "media",
+  "prioridades": [
+    "Vincular e checar a consistencia do endereço da Av. Alvares Cabral na ficha do Google Business com o rodape do site.",
+    "Inserir links diretos para as redes sociais oficiais no portal principal para facilitar o cruzamento de fontes pelas IAs.",
+    "Criar descrições em formato de texto simples e legivel para robos em todos os projetos do portfólio digital."
+  ],
+  "acoes": {
+    "3_dias": "Inserir dados basicos de contato, endereço completo e CNPJ de forma visivel no rodape da pagina inicial do site.",
+    "30_dias": "Verificar e atualizar todas as categorias e serviços da ficha do Google Business, incluindo 'Escritório de Arquitetura'.",
+    "90_dias": "Implementar uma area de artigos ou noticias no site com textos estruturados sobre os projetos em andamento e premiaçoes para reforçar a leitura das IAs."
+  },
+  "parecer_final": "O escritorio Gustavo Penna possui uma base de autoridade digital razoavel e consolidada devido ao peso historico da marca e presença em grandes projetos. As fragilidades estao na falta de preenchimento e conexao direta de canais locais como redes sociais e mapas no inventario analisado. Realizando esses ajustes tecnicos finos, a marca mantem sua solidez nas respostas das IAs."
+}

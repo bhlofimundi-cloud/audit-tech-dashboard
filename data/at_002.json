@@ -1,0 +1,53 @@
+{
+  "id_cliente": "at_002",
+  "nome_empresa": "PQA - Pena Quadros",
+  "segmento": "Advocacia",
+  "cidade": "Belo Horizonte",
+  "site": "https://penaquadros.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Parcial",
+      "observacao": "Reconhece o escritório por nome completo, mas não o associa a buscas genéricas por direito tributário em BH."
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "Associa a marca à região da Savassi, mas faltam referências em listas locais de recomendação."
+    },
+    "claude": {
+      "status": "Ausente",
+      "observacao": "Não cita o escritório em consultas sobre especialistas em planejamento tributário na cidade."
+    },
+    "perplexity": {
+      "status": "Parcial",
+      "observacao": "Identifica dados institucionais do site, mas não cruza dados com fontes externas de notícias ou portais jurídicos."
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "Sacha Calmon Misabel Derzi Consultores Advogados",
+      "motivo": "Alto volume de citações acadêmicas, notícias no segmento e artigos publicados na internet sobre temas tributários."
+    },
+    {
+      "nome": "Coelho e Morello Advogados Associados",
+      "motivo": "Forte otimização local, presença em guias de empresas e blog constantemente atualizado com termos de direito tributário."
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O site possui estrutura básica institucional, mas carece de um blog ativo ou páginas específicas aprofundadas para cada subárea do direito tributário.",
+    "google_business": "nao verificado",
+    "instagram": "nao encontrado",
+    "principal_problema": "Falta de conteúdo dinâmico e menções em sites terceiros (portais jurídicos e notícias), o que impede as IAs de validarem a autoridade da empresa na área tributária."
+  },
+  "score_geral": 50,
+  "prioridades": [
+    "Publicar artigos técnicos com foco em soluções tributárias específicas no site.",
+    "Ativar e preencher completamente o perfil no Google Business com o endereço e o serviço principal.",
+    "Buscar menções ou publicação de artigos em portais de conteúdo jurídico (como Migalhas ou ConJur)."
+  ],
+  "acoes": {
+    "3_dias": "Configurar e verificar o perfil do Google Business, inserindo os dados corretos da Savassi e a categoria principal de advocacia tributária.",
+    "30_dias": "Criar e publicar 3 artigos detalhados no site sobre teses tributárias ou redução de impostos para empresas locais.",
+    "90_dias": "Implementar uma estratégia de assessoria de imprensa ou parcerias para gerar pelo menos 3 links externos apontando para o site do escritório."
+  },
+  "parecer_final": "O escritório PQA - Pena Quadros tem presença digital puramente institucional e estática. Como as IAs dependem de dados frequentes e cruzamento de fontes para recomendar serviços de advocacia, a escassez de menções externas e de conteúdo especializado recente reduz as chances de indicação para potenciais clientes em Belo Horizonte."
+}

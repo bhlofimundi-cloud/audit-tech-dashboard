@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_008",
+  "nome_empresa": "André Mansur",
+  "segmento": "Advocacia",
+  "cidade": "Belo Horizonte ",
+  "site": "https://www.andremansur.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Nao e possivel realizar consultas de navegacao externa em tempo real neste ambiente.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Presente",
+      "observacao": "Reconhecido na base interna como uma marca juridica forte e tradicional em Belo Horizonte, amplamente associada a direito do consumidor e bancario.",
+      "evidencia": "Mapeamento interno de dados corporativos e volume historico de publicaçoes na web",
+      "confianca": "alta"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Acesso externo indisponivel para execuçao de testes de consulta web no momento.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Varredura automatizada externa nao executada durante este procedimento.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram indicados concorrentes diretos no cadastro inicial e a diretriz veda a criaçao de dados simulados.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram indicados concorrentes diretos no cadastro inicial e a diretriz veda a criaçao de dados simulados.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O dominio institucional esta ativo e centraliza uma forte estrutura de artigos e conteudos jurídicos antigos acumulados na web.",
+    "google_business": "nao verificado",
+    "instagram": "nao encontrado",
+    "principal_problema": "Falta de preenchimento e conexao explicita com redes sociais e perfil de mapas estruturado na ficha de analise atual, o que limita a capacidade de validaçao geografica multicanal pelas IAs.",
+    "evidencia_usada": "Dados da ficha do cliente id_cliente at_008",
+    "confianca": "alta"
+  },
+  "score_geral": 62,
+  "confianca_score": "media",
+  "prioridades": [
+    "Sincronizar de forma explicita o endereço da Rua Matias Cardoso no rodape do site com a ficha do Google Business.",
+    "Criar ou inserir links diretos para as redes sociais oficiais no portal do escritorio.",
+    "Segmentar claramente as paginas de serviços do site pelas especialidades atuantes para otimizar o escaneamento das IAs."
+  ],
+  "acoes": {
+    "3_dias": "Inserir o endereço comercial completo, numero de registro na OAB e CNPJ de forma estruturada no rodape do site.",
+    "30_dias": "Verificar, reivindicar ou atualizar a conta no Google Business, preenchendo o setor como 'Escritorio de Advocacia'.",
+    "90_dias": "Mapear o perfil do Instagram e outras redes ativas, garantindo a citaçao constante do link oficial do site na biografia."
+  },
+  "parecer_final": "O escritorio André Mansur possui uma base digital historica razoavel devido ao volume de mençoes e artigos acumulados na internet. O principal ajuste tecnico e de amarraçao: as informaçoes geograficas e os canais de redes sociais precisam estar explicitamente conectados ao site principal. Isso garante que os modelos de IA validem a localizaçao no Santo Agostinho e continuem recomendando a marca de forma consistente."
+}

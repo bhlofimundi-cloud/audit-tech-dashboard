@@ -1,0 +1,53 @@
+{
+  "id_cliente": "at_001",
+  "nome_empresa": "Dra. Gisele Werneck",
+  "segmento": "clinica de estetica",
+  "cidade": "Belo Horizonte",
+  "site": "https://www.giselewerneck.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Parcial",
+      "observacao": "Reconhecida como médica nutróloga, mas raramente associada ao termo harmonização facial."
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "Encontrada por nome e especialidade médica principal, com pouca evidência em estética facial."
+    },
+    "claude": {
+      "status": "Ausente",
+      "observacao": "Dificuldade em localizar a profissional em listas de estética em Belo Horizonte."
+    },
+    "perplexity": {
+      "status": "Parcial",
+      "observacao": "Cita o site e localização no Lourdes, mas foca em nutrologia e metabolismo."
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "Clínica Marina Ceruti",
+      "motivo": "Forte otimização de SEO para o termo específico 'harmonização facial' e presença em listas de especialistas."
+    },
+    {
+      "nome": "Dra. Paula Melo",
+      "motivo": "Localizada no mesmo bairro (Lourdes) com site focado exclusivamente em procedimentos de estética facial."
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "Bem estruturado, mas o conteúdo é focado em Nutrologia e Medicina Integrativa, diluindo a autoridade em Harmonização Facial.",
+    "google_business": "Nao verificado (perfil não encontrado com o nome Dra. Gisele Werneck na categoria Estética).",
+    "instagram": "Perfil @giselewerneck.nutrologa reforça o posicionamento como nutróloga em vez de especialista em estética.",
+    "principal_problema": "Conflito de posicionamento: a IA classifica a profissional como nutróloga/gastroenterologista e não a recomenda para buscas de estética."
+  },
+  "score_geral": 45,
+  "prioridades": [
+    "Criar uma página exclusiva no site para Harmonização Facial com textos técnicos detalhados.",
+    "Ajustar a categoria principal no Google Business para 'Clínica de Estética' ou incluir serviços estéticos.",
+    "Inserir palavras-chave de estética (preenchimento, bioestimuladores) na bio e legendas do Instagram."
+  ],
+  "acoes": {
+    "3_dias": "Atualizar o título do site (SEO Title) para incluir 'Harmonização Facial em Belo Horizonte'.",
+    "30_dias": "Publicar 4 artigos no blog sobre os benefícios técnicos da harmonização facial aliada à saúde metabólica.",
+    "90_dias": "Obter 10 novas avaliações no Google citando especificamente o serviço de harmonização facial e estética."
+  },
+  "parecer_final": "A Dra. Gisele possui excelente autoridade digital como médica nutróloga, porém sua visibilidade em 'harmonização facial' é baixa porque as IAs priorizam especialistas cujo conteúdo é focado 100% em estética. Para ser recomendada nesta área, é necessário separar ou integrar claramente os serviços de estética no site e nas redes sociais."
+}

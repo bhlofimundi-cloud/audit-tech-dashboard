@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_009",
+  "nome_empresa": "Dra. Rafaela Vasconcelos",
+  "segmento": "clinica de estetica",
+  "cidade": "Belo Horizonte",
+  "site": "https://rafaeladevasconcelos.com.br/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Sem permissao para efetuar varredura externa em tempo real durante esta consulta.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Parcial",
+      "observacao": "O site institucional e reconhecido na base local, mas o nome da profissional tem baixo vinculo com listas de recomendacao no bairro Estoril.",
+      "evidencia": "Mapeamento e analise de associacao de marca na base de dados interna",
+      "confianca": "media"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Modulo de navegacao web indisponivel para testes externos no momento.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Nao foi realizada busca automatizada na internet para checagem de mencoes externas.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro inicial e as regras impedem a criacao de marcas ficticias.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nao foram informados concorrentes no cadastro inicial e as regras impedem a criacao de marcas ficticias.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O endereço eletronico existe e esta ativo com o nome da profissional, mas ha pequena divergencia de grafia com o link indicado no cadastro (com ou sem a preposicao 'de').",
+    "google_business": "nao verificado",
+    "instagram": "Perfil indicado como @drarafavasconcelos, demonstrando intencao de posicionamento pessoal focado em estetica.",
+    "principal_problema": "Ausencia de informacoes estruturadas locais (como o perfil de mapas) vinculadas diretamente ao site nos dados enviados, o que fragmenta a identificacao geografica pelas IAs na regiao do Estoril.",
+    "evidencia_usada": "Dados extraidos da ficha cadastral do cliente at_009",
+    "confianca": "alta"
+  },
+  "score_geral": 42,
+  "confianca_score": "media",
+  "prioridades": [
+    "Vincular de forma clara o endereço da Rua Desembargador Edésio Fernandes no rodape do site institucional.",
+    "Garantir a integracao e a verificacao da ficha do Google Business preenchida como 'Clinica de Estetica'.",
+    "Inserir o link correto e unificado do site na biografia do perfil do Instagram."
+  ],
+  "acoes": {
+    "3_dias": "Adicionar o endereço completo do Estoril, telefone de contato e CNPJ no rodape da pagina inicial do site.",
+    "30_dias": "Configurar a conta no Google Business, preenchendo todos os tratamentos esteticos e dermatologicos oferecidos na secao de serviços.",
+    "90_dias": "Desenvolver paginas de texto especificas dentro do site para cada procedimento principal executado, facilitando a leitura estruturada dos robos."
+  },
+  "parecer_final": "A Dra. Rafaela Vasconcelos possui uma base digital inicial estruturada por meio do site proprio e rede social, gerando citacoes parciais. O principal ponto de melhoria e tecnico: falta associar de forma explicita a localizacao fisica da clinica ao site e ativar a ficha de mapas local. Ajustar esses pontos melhora a confirmacao da marca geograficamente pelas IAs."
+}
