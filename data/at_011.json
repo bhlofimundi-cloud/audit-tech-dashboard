@@ -1,0 +1,68 @@
+{
+  "id_cliente": "at_011",
+  "nome_empresa": "Dra Clara Ribeiro",
+  "segmento": "Clínica especializada",
+  "cidade": "Belo Horizonte",
+  "site": "https://draclararibeiro.online/",
+  "visibilidade_ias": {
+    "chatgpt": {
+      "status": "Nao verificado",
+      "observacao": "Sem acesso a consultas externas em tempo real para checagem deste termo específico.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "gemini": {
+      "status": "Ausente",
+      "observacao": "A profissional e o endereço informado nao foram localizados na base de dados geografica local.",
+      "evidencia": "analise de cruzamento de dados de marca e endereço na base local",
+      "confianca": "media"
+    },
+    "claude": {
+      "status": "Nao verificado",
+      "observacao": "Nao e possivel realizar testes externos de navegacao web com este modelo no momento.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    },
+    "perplexity": {
+      "status": "Nao verificado",
+      "observacao": "Busca em tempo real nao executada para esta marca específica durante o processo.",
+      "evidencia": "nao verificado",
+      "confianca": "baixa"
+    }
+  },
+  "concorrentes": [
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    },
+    {
+      "nome": "nao encontrado",
+      "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+      "evidencia": "inferencia",
+      "confianca": "baixa"
+    }
+  ],
+  "diagnostico_tecnico": {
+    "site": "O dominio existe no cadastro, mas usa uma extensao nao convencional (.online) que exige maior esforço de indexacao local.",
+    "google_business": "nao verificado",
+    "instagram": "nao encontrado",
+    "principal_problema": "Ausencia de dados estruturados publicos, falta de redes sociais informadas e nao localizacao da ficha de mapas, o que impede as IAs de confirmarem a existencia da profissional.",
+    "evidencia_usada": "Ficha cadastral do cliente id_cliente at_011",
+    "confianca": "alta"
+  },
+  "score_geral": 25,
+  "confianca_score": "media",
+  "prioridades": [
+    "Vincular explicitamente o endereço da Av. dos Andradas ao site em todas as sessoes de texto.",
+    "Criar e estruturar uma ficha no Google Business preenchendo o endereço fisico e o serviço principal.",
+    "Mapear e unificar os canais digitais incluindo o link para as redes sociais oficiais no rodape do site."
+  ],
+  "acoes": {
+    "3_dias": "Inserir o nome completo da profissional, o endereço de Belo Horizonte e o CNPJ de forma visivel no rodape do site.",
+    "30_dias": "Criar a conta no Google Business e estruturar o perfil do Instagram, alinhando a marca com o termo 'Esteticista'.",
+    "90_dias": "Produzir paginas internas detalhadas no site para cada tipo de procedimento realizado, facilitando a leitura dos robos de busca."
+  },
+  "parecer_final": "A empresa apresenta uma barreira importante de confirmacao pelas IAs porque nao ha vinculacao geografica clara nos dados analisados e faltam canais essenciais como ficha de mapas e redes sociais. Para reverter esse cenario de invisibilidade, e necessario registrar formalmente os canais locais e unificar as informaçoes da marca no site oficial."
+}

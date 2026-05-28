@@ -1,0 +1,68 @@
+{
+    "id_cliente": "at_010",
+    "nome_empresa": "CaMa arquitetura.",
+    "segmento": "Arquitetura",
+    "cidade": "Belo Horizonte",
+    "site": "http://www.camaarquitetura.com/",
+    "visibilidade_ias": {
+        "chatgpt": {
+            "status": "Nao verificado",
+            "observacao": "Sem acesso a consultas externas em tempo real para checagem deste termo especifico.",
+            "evidencia": "nao verificado",
+            "confianca": "baixa"
+        },
+        "gemini": {
+            "status": "Ausente",
+            "observacao": "O escritorio e o endereço fornecido nao foram mapeados na base de dados geografica local.",
+            "evidencia": "analise de cruzamento de dados de marca e endereço na base local",
+            "confianca": "media"
+        },
+        "claude": {
+            "status": "Nao verificado",
+            "observacao": "Nao e possivel realizar testes externos de navegacao web com este modelo no momento.",
+            "evidencia": "nao verificado",
+            "confianca": "baixa"
+        },
+        "perplexity": {
+            "status": "Nao verificado",
+            "observacao": "Busca em tempo real nao executada para esta marca especifica durante o processo.",
+            "evidencia": "nao verificado",
+            "confianca": "baixa"
+        }
+    },
+    "concorrentes": [
+        {
+            "nome": "nao encontrado",
+            "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+            "evidencia": "inferencia",
+            "confianca": "baixa"
+        },
+        {
+            "nome": "nao encontrado",
+            "motivo": "Nenhum concorrente foi informado no cadastro e a diretriz impede a criacao de dados ficticios.",
+            "evidencia": "inferencia",
+            "confianca": "baixa"
+        }
+    ],
+    "diagnostico_tecnico": {
+        "site": "O site institucional utiliza o protocolo HTTP antigo e nao seguro, reduzindo a integridade da leitura por rastreadores.",
+        "google_business": "nao verificado",
+        "instagram": "nao encontrado",
+        "principal_problema": "Falta de protocolo de segurança HTTPS no site, ausencia de vinculacao explicita com redes sociais e perfil de mapas nao localizado, dificultando a confirmacao dos dados por motores de IA.",
+        "evidencia_usada": "Ficha cadastral do cliente id_cliente at_010",
+        "confianca": "alta"
+    },
+    "score_geral": 28,
+    "confianca_score": "media",
+    "prioridades": [
+        "Instalar o certificado de segurança SSL para migrar o site de HTTP para HTTPS.",
+        "Criar, verificar e preencher integralmente a ficha da empresa no Google Business com a categoria correta.",
+        "Adicionar o endereço da Rua dos Timbiras e o CNPJ de forma visivel e em texto estruturado no rodape do site."
+    ],
+    "acoes": {
+        "3_dias": "Ativar o protocolo HTTPS junto a hospedagem do dominio e incluir o endereço completo no rodape da pagina principal.",
+        "30_dias": "Registrar a conta corporativa no Google Business e estruturar os canais de redes sociais institucionais vinculando o link do site.",
+        "90_dias": "Publicar descricoes tecnicas e detalhadas em formato de texto para cada projeto do portfolio digital para permitir o escaneamento das IAs."
+    },
+    "parecer_final": "A empresa enfrenta barreiras tecnicas iniciais importantes devido a falta de segurança no protocolo do site (HTTP) e a ausencia de canais de geolocalizacao estruturados (mapas e redes sociais). Para reverter o cenario de baixa visibilidade e permitir que os modelos de IA validem e recomendem o escritorio, e fundamental migrar para HTTPS e unificar as informacoes de endereço na web."
+}
